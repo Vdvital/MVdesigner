@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVdesigner - Portfólio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .portfolio-item {
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #000;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Header -->
+    <header class="fixed w-full bg-white z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold tracking-tighter">MV<span class="font-light">designer</span></h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link font-medium">Home</a>
+                <a href="#services" class="nav-link font-medium">Serviços</a>
+                <a href="#portfolio" class="nav-link font-medium">Portfólio</a>
+                <a href="#about" class="nav-link font-medium">Sobre</a>
+                <a href="#contact" class="nav-link font-medium">Contato</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full border-t border-gray-200">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#home" class="py-2 font-medium">Home</a>
+                <a href="#services" class="py-2 font-medium">Serviços</a>
+                <a href="#portfolio" class="py-2 font-medium">Portfólio</a>
+                <a href="#about" class="py-2 font-medium">Sobre</a>
+                <a href="#contact" class="py-2 font-medium">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Design que <br>transforma <span class="text-gray-600">ideias</span> em <span class="text-gray-600">realidade</span></h2>
+                    <p class="text-lg text-gray-700 mb-8">Marketing, Design, Fotografia de produtos e criação de embalagens e catálogos profissionais.</p>
+                    <div class="flex space-x-4">
+                        <a href="#portfolio" class="px-6 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 transition duration-300">Ver Portfólio</a>
+                        <a href="#contact" class="px-6 py-3 border border-black font-medium rounded-md hover:bg-gray-100 transition duration-300">Contato</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <svg class="w-full h-auto" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="50" y="50" width="400" height="300" fill="#f5f5f5" />
+                            <circle cx="150" cy="150" r="50" fill="#e0e0e0" />
+                            <rect x="250" y="100" width="150" height="100" fill="#d0d0d0" />
+                            <path d="M50 250 L200 350 L450 250 L450 350 L50 350 Z" fill="#e8e8e8" />
+                            <text x="250" y="200" font-family="Montserrat" font-size="24" text-anchor="middle" fill="#888">Design Criativo</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-2">Serviços</h2>
+                <div class="w-24 h-1 bg-black mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-bullhorn text-2xl text-gray-700"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Marketing</h3>
+                    <p class="text-gray-600 text-center">Estratégias de marketing eficientes para impulsionar sua marca e alcançar seu público-alvo.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-pencil-ruler text-2xl text-gray-700"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Design</h3>
+                    <p class="text-gray-600 text-center">Criação de designs modernos e impactantes que comunicam a essência da sua marca.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-camera text-2xl text-gray-700"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Fotografia</h3>
+                    <p class="text-gray-600 text-center">Fotografia profissional de produtos que destacam seus melhores atributos e atraem clientes.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-box-open text-2xl text-gray-700"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Embalagens</h3>
+                    <p class="text-gray-600 text-center">Desenvolvimento de embalagens e catálogos que valorizam seu produto e fortalecem sua marca.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-2">Portfólio</h2>
+                <div class="w-24 h-1 bg-black mx-auto"></div>
+            </div>
+            <div class="flex flex-wrap mb-8">
+                <button class="portfolio-filter-btn active mx-2 mb-4 px-4 py-2 bg-black text-white rounded-md" data-filter="all">Todos</button>
+                <button class="portfolio-filter-btn mx-2 mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md" data-filter="marketing">Marketing</button>
+                <button class="portfolio-filter-btn mx-2 mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md" data-filter="design">Design</button>
+                <button class="portfolio-filter-btn mx-2 mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md" data-filter="fotografia">Fotografia</button>
+                <button class="portfolio-filter-btn mx-2 mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md" data-filter="embalagens">Embalagens</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Marketing Projects -->
+                <div class="portfolio-item" data-category="marketing">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden cursor-pointer" onclick="openModal('Campanha Digital', 'Estratégia de marketing digital para lançamento de produto.', 'marketing')">
+                        <div class="h-64 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A2 2 0 0011.172 3H8.828a2 2 0 00-1.414.586L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-1">Campanha Digital</h3>
+                            <p class="text-gray-600 text-sm">Marketing</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="marketing">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden cursor-pointer" onclick="openModal('Estratégia de Mídia Social', 'Desenvolvimento de estratégia para redes sociais.', 'marketing')">
+                        <div class="h-64 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-1">Estratégia de Mídia Social</h3>
+                            <p class="text-gray-600 text-sm">Marketing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Projects -->
+                <div class="portfolio-item" data-category="design">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden cursor-pointer" onclick="openModal('Identidade Visual', 'Criação de identidade visual completa para startup.', 'design')">
+                        <div class="h-64 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-1">Identidade Visual</h3>
+                            <p class="text-gray-600 text-sm">Design</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="design">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden cursor-pointer" onclick="openModal('Website Responsivo', 'Design de website moderno e responsivo.', 'design')">
+                        <div class="h-64 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-1">Website Responsivo</h3>
+                            <p class="text-gray-600 text-sm">Design</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fotografia Projects -->
+                <div class="portfolio-item" data-category="fotografia">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden cursor-pointer" onclick="openModal('Fotografia de Produto', 'Sessão fotográfica para linha de produtos premium.', 'fotografia')">
+                        <div class="h-64 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-1">Fotografia de Produto</h3>
+                            <p class="text-gray-600 text-sm">Fotografia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="fotografia">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden cursor-pointer" onclick="openModal('Catálogo de Moda', 'Fotografia para catálogo de moda sazonal.', 'fotografia')">
+                        <div class="h-64 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-1">Catálogo de Moda</h3>
+                            <p class="text-gray-600 text-sm">Fotografia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Embalagens Projects -->
+                <div class="portfolio-item" data-category="embalagens">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden cursor-pointer" onclick="openModal('Embalagem Sustentável', 'Design de embalagem ecológica para produtos orgânicos.', 'embalagens')">
+                        <div class="h-64 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-1">Embalagem Sustentável</h3>
+                            <p class="text-gray-600 text-sm">Embalagens</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="embalagens">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden cursor-pointer" onclick="openModal('Catálogo de Produtos', 'Design de catálogo completo para linha de produtos.', 'embalagens')">
+                        <div class="h-64 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-1">Catálogo de Produtos</h3>
+                            <p class="text-gray-600 text-sm">Embalagens</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="embalagens">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden cursor-pointer" onclick="openModal('Redesign de Embalagem', 'Modernização de embalagem para marca tradicional.', 'embalagens')">
+                        <div class="h-64 bg-gray-200 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clip-rule="evenodd"></path>
+                                <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold mb-1">Redesign de Embalagem</h3>
+                            <p class="text-gray-600 text-sm">Embalagens</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="relative">
+                        <svg class="w-full h-auto" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="50" y="50" width="300" height="300" fill="#e0e0e0" />
+                            <circle cx="200" cy="150" r="60" fill="#d0d0d0" />
+                            <path d="M140 220 C140 220, 200 280, 260 220 L260 300 L140 300 Z" fill="#d0d0d0" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-bold mb-6">Sobre MVdesigner</h2>
+                    <p class="text-gray-700 mb-4">Sou um profissional apaixonado por design e marketing, com experiência em criar soluções visuais impactantes que ajudam marcas a se destacarem no mercado.</p>
+                    <p class="text-gray-700 mb-4">Minha abordagem combina criatividade com estratégia, garantindo que cada projeto não apenas pareça incrível, mas também atinja os objetivos de negócio dos meus clientes.</p>
+                    <p class="text-gray-700 mb-6">Especializado em design gráfico, fotografia de produtos, criação de embalagens e estratégias de marketing digital, ofereço soluções completas para empresas de todos os tamanhos.</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="px-6 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 transition duration-300">Entre em contato</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-2">Contato</h2>
+                <div class="w-24 h-1 bg-black mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="bg-gray-50 p-8 rounded-lg h-full">
+                        <h3 class="text-xl font-semibold mb-6">Informações de Contato</h3>
+                        <div class="flex items-start mb-4">
+                            <div class="w-10 h-10 bg-black rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Email</p>
+                                <a href="mailto:marcos.vital2008@outlook.com" class="text-gray-700 hover:text-black">marcos.vital2008@outlook.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="w-10 h-10 bg-black rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Telefone</p>
+                                <a href="tel:+5511993975886" class="text-gray-700 hover:text-black">(11) 99397-5886</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-black rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Localização</p>
+                                <p class="text-gray-700">São Paulo, SP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-8">
+                    <div class="bg-gray-50 p-8 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-6">Envie uma mensagem</h3>
+                        <form id="contact-form" class="demo-form">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Nome</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Assunto</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Mensagem</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full px-6 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 transition duration-300">Enviar Mensagem</button>
+                        </form>
+                        <div id="form-message" class="mt-4 text-center hidden">
+                            <p class="text-green-600 font-medium">Esta é uma demonstração de formulário. Em um site real, sua mensagem seria enviada.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h2 class="text-2xl font-bold mb-4">MV<span class="font-light">designer</span></h2>
+                    <p class="text-gray-400 max-w-xs">Design profissional, marketing estratégico e soluções visuais para sua marca.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Links Rápidos</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Serviços</a></li>
+                            <li><a href="#portfolio" class="text-gray-400 hover:text-white transition duration-300">Portfólio</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">Sobre</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Serviços</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Marketing</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Design</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Fotografia</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Embalagens</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Catálogos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-span-2 md:col-span-1">
+                        <h3 class="text-lg font-semibold mb-4">Contato</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                                <a href="mailto:marcos.vital2008@outlook.com" class="text-gray-400 hover:text-white transition duration-300">marcos.vital2008@outlook.com</a>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone mr-2 text-gray-400"></i>
+                                <a href="tel:+5511993975886" class="text-gray-400 hover:text-white transition duration-300">(11) 99397-5886</a>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
+                                <span class="text-gray-400">São Paulo, SP</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2023 MVdesigner. Todos os direitos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition duration-300">
+                        <i class="fab fa-facebook-f text-white"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition duration-300">
+                        <i class="fab fa-instagram text-white"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition duration-300">
+                        <i class="fab fa-linkedin-in text-white"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition duration-300">
+                        <i class="fab fa-behance text-white"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="portfolio-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden modal">
+        <div class="bg-white rounded-lg max-w-3xl w-full mx-4 overflow-hidden">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="text-2xl font-bold"></h3>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mb-6">
+                    <div id="modal-image" class="h-64 bg-gray-200 rounded-lg flex items-center justify-center mb-4">
+                        <svg id="modal-icon" class="w-16 h-16 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        </svg>
+                    </div>
+                    <p id="modal-description" class="text-gray-700"></p>
+                </div>
+                <div class="flex justify-end">
+                    <button id="close-modal-btn" class="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition duration-300">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Admin Login Modal -->
+    <div id="admin-login-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden modal">
+        <div class="bg-white rounded-lg max-w-md w-full mx-4 overflow-hidden">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-bold">Área Administrativa</h3>
+                    <button id="close-admin-modal" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mb-6">
+                    <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6" role="alert">
+                        <p class="font-bold">Demonstração</p>
+                        <p>Esta é apenas uma demonstração de interface. Em um site real, esta área seria protegida.</p>
+                    </div>
+                    <form id="admin-login-form">
+                        <div class="mb-4">
+                            <label for="username" class="block text-gray-700 font-medium mb-2">Usuário</label>
+                            <input type="text" id="username" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="password" class="block text-gray-700 font-medium mb-2">Senha</label>
+                            <input type="password" id="password" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent" required>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 transition duration-300">Entrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Admin Panel Modal -->
+    <div id="admin-panel-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden modal">
+        <div class="bg-white rounded-lg max-w-4xl w-full mx-4 overflow-hidden">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-bold">Painel Administrativo</h3>
+                    <button id="close-admin-panel" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mb-6">
+                    <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6" role="alert">
+                        <p class="font-bold">Demonstração</p>
+                        <p>Este é um painel administrativo de demonstração. As alterações não serão salvas permanentemente.</p>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3">Editar Seção Hero</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="hero-title" class="block text-gray-700 font-medium mb-2">Título</label>
+                                <input type="text" id="hero-title" value="Design que transforma ideias em realidade" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="hero-subtitle" class="block text-gray-700 font-medium mb-2">Subtítulo</label>
+                                <input type="text" id="hero-subtitle" value="Marketing, Design, Fotografia de produtos e criação de embalagens e catálogos profissionais." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3">Editar Seção Sobre</h4>
+                        <div>
+                            <label for="about-text" class="block text-gray-700 font-medium mb-2">Texto</label>
+                            <textarea id="about-text" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent">Sou um profissional apaixonado por design e marketing, com experiência em criar soluções visuais impactantes que ajudam marcas a se destacarem no mercado. Minha abordagem combina criatividade com estratégia, garantindo que cada projeto não apenas pareça incrível, mas também atinja os objetivos de negócio dos meus clientes.</textarea>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3">Gerenciar Portfólio</h4>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white">
+                                <thead>
+                                    <tr>
+                                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Título</th>
+                                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoria</th>
+                                        <th class="py-2 px-4 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-2 px-4 border-b border-gray-200">Campanha Digital</td>
+                                        <td class="py-2 px-4 border-b border-gray-200">Marketing</td>
+                                        <td class="py-2 px-4 border-b border-gray-200">
+                                            <button class="text-blue-600 hover:text-blue-800 mr-2">Editar</button>
+                                            <button class="text-red-600 hover:text-red-800">Excluir</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-4 border-b border-gray-200">Identidade Visual</td>
+                                        <td class="py-2 px-4 border-b border-gray-200">Design</td>
+                                        <td class="py-2 px-4 border-b border-gray-200">
+                                            <button class="text-blue-600 hover:text-blue-800 mr-2">Editar</button>
+                                            <button class="text-red-600 hover:text-red-800">Excluir</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-4 border-b border-gray-200">Fotografia de Produto</td>
+                                        <td class="py-2 px-4 border-b border-gray-200">Fotografia</td>
+                                        <td class="py-2 px-4 border-b border-gray-200">
+                                            <button class="text-blue-600 hover:text-blue-800 mr-2">Editar</button>
+                                            <button class="text-red-600 hover:text-red-800">Excluir</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="mt-4 px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition duration-300">Adicionar Novo Item</button>
+                    </div>
+                    <div class="flex justify-end">
+                        <button id="save-changes" class="px-6 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 transition duration-300">Salvar Alterações</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Button (Hidden in normal view) -->
+    <div class="fixed bottom-6 right-6">
+        <button id="admin-button" class="w-12 h-12 bg-black rounded-full flex items-center justify-center shadow-lg hover:bg-gray-800 transition duration-300 focus:outline-none">
+            <i class="fas fa-lock text-white"></i>
+        </button>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Portfolio Filter
+        const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-black', 'text-white');
+                    btn.classList.add('bg-gray-200');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active', 'bg-black', 'text-white');
+                button.classList.remove('bg-gray-200');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Portfolio Modal
+        const modal = document.getElementById('portfolio-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDescription = document.getElementById('modal-description');
+        const modalIcon = document.getElementById('modal-icon');
+        const closeModal = document.getElementById('close-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+
+        function openModal(title, description, category) {
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            
+            // Set icon based on category
+            let iconPath = '';
+            switch(category) {
+                case 'marketing':
+                    iconPath = '<path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>';
+                    break;
+                case 'design':
+                    iconPath = '<path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd"></path>';
+                    break;
+                case 'fotografia':
+                    iconPath = '<path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>';
+                    break;
+                case 'embalagens':
+                    iconPath = '<path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z"></path>';
+                    break;
+                default:
+                    iconPath = '<path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>';
+            }
+            
+            modalIcon.innerHTML = iconPath;
+            modal.classList.remove('hidden');
+        }
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        // Demo Contact Form
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formMessage.classList.remove('hidden');
+            contactForm.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 5000);
+        });
+
+        // Admin Panel Demo
+        const adminButton = document.getElementById('admin-button');
+        const adminLoginModal = document.getElementById('admin-login-modal');
+        const closeAdminModal = document.getElementById('close-admin-modal');
+        const adminLoginForm = document.getElementById('admin-login-form');
+        const adminPanelModal = document.getElementById('admin-panel-modal');
+        const closeAdminPanel = document.getElementById('close-admin-panel');
+        const saveChangesBtn = document.getElementById('save-changes');
+
+        adminButton.addEventListener('click', () => {
+            adminLoginModal.classList.remove('hidden');
+        });
+
+        closeAdminModal.addEventListener('click', () => {
+            adminLoginModal.classList.add('hidden');
+        });
+
+        adminLoginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Demo login - in a real app, this would be handled securely on the server
+            if (username === 'kakeru' && password === 'K@kerux1235') {
+                adminLoginModal.classList.add('hidden');
+                adminPanelModal.classList.remove('hidden');
+            } else {
+                alert('Credenciais inválidas. Esta é apenas uma demonstração.');
+            }
+        });
+
+        closeAdminPanel.addEventListener('click', () => {
+            adminPanelModal.classList.add('hidden');
+        });
+
+        saveChangesBtn.addEventListener('click', () => {
+            // Demo functionality - in a real app, this would save to a database
+            const heroTitle = document.getElementById('hero-title').value;
+            const heroSubtitle = document.getElementById('hero-subtitle').value;
+            const aboutText = document.getElementById('about-text').value;
+            
+            // Update the content on the page (demo only)
+            document.querySelector('#home h2').innerHTML = heroTitle.replace(/\n/g, '<br>');
+            document.querySelector('#home p.text-lg').textContent = heroSubtitle;
+            
+            const aboutParagraphs = aboutText.split('\n');
+            const aboutSection = document.querySelector('#about .md\\:pl-12');
+            
+            // Clear existing paragraphs except the heading
+            while (aboutSection.children.length > 1) {
+                aboutSection.removeChild(aboutSection.children[1]);
+            }
+            
+            // Add new paragraphs
+            aboutParagraphs.forEach((paragraph, index) => {
+                if (paragraph.trim() !== '') {
+                    const p = document.createElement('p');
+                    p.textContent = paragraph;
+                    p.className = 'text-gray-700 mb-4';
+                    aboutSection.insertBefore(p, aboutSection.lastElementChild);
+                }
+            });
+            
+            alert('Alterações salvas com sucesso! (Demonstração)');
+            adminPanelModal.classList.add('hidden');
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+            if (e.target === adminLoginModal) {
+                adminLoginModal.classList.add('hidden');
+            }
+            if (e.target === adminPanelModal) {
+                adminPanelModal.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
