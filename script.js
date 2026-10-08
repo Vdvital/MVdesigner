@@ -19,6 +19,37 @@ document.addEventListener("keydown", event => {
 });
 window.matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
 
+const motionDirections = {
+  marca: {
+    title: "Marca em foco",
+    words: ["Identidade", "Presença", "Ritmo"]
+  },
+  campanha: {
+    title: "Campanha com impacto",
+    words: ["Oferta", "Alcance", "Memória"]
+  },
+  conteudo: {
+    title: "Conteúdo em série",
+    words: ["Posts", "Stories", "Reels"]
+  }
+};
+const motionPreview = document.querySelector("[data-motion-preview]");
+const motionTitle = document.querySelector("#motion-preview-title");
+const motionWords = document.querySelectorAll(".preview-word");
+document.querySelectorAll("[data-motion]").forEach(button => {
+  button.addEventListener("click", () => {
+    const direction = motionDirections[button.dataset.motion];
+    motionPreview.dataset.mode = button.dataset.motion;
+    motionTitle.textContent = direction.title;
+    motionWords.forEach((word, index) => { word.textContent = direction.words[index]; });
+    document.querySelectorAll("[data-motion]").forEach(control => {
+      const selected = control === button;
+      control.classList.toggle("is-active", selected);
+      control.setAttribute("aria-selected", String(selected));
+    });
+  });
+});
+
 const serviceSelect = document.querySelector("#service");
 document.querySelectorAll("[data-service]").forEach(link => {
   link.addEventListener("click", () => { serviceSelect.value = link.dataset.service; });
@@ -73,7 +104,7 @@ projectDialog.addEventListener("click", event => {
 document.querySelector("#dialog-contact").addEventListener("click", () => projectDialog.close());
 
 const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
-const revealElements = document.querySelectorAll(".section-heading, .project-card, .service-row, .about-layout, .process-list li, .contact-intro, .brief-form");
+const revealElements = document.querySelectorAll(".motion-copy, .motion-preview, .section-heading, .project-card, .service-row, .about-layout, .process-list li, .contact-intro, .brief-form");
 if (!motionPreference.matches && "IntersectionObserver" in window) {
   document.body.classList.add("has-motion");
   const observer = new IntersectionObserver(entries => {
@@ -94,6 +125,43 @@ if (!motionPreference.matches && "IntersectionObserver" in window) {
       document.body.classList.remove("has-motion");
       observer.disconnect();
     }
+  });
+}
+
+let pointerFramePending = false;
+function updatePointerEffects(event) {
+  const width = window.innerWidth || 1;
+  const height = window.innerHeight || 1;
+  const x = event.clientX / width;
+  const y = event.clientY / height;
+  document.body.style.setProperty("--cursor-x", `${Math.round(x * 100)}%`);
+  document.body.style.setProperty("--cursor-y", `${Math.round(y * 100)}%`);
+  document.body.style.setProperty("--hero-shift-x", `${(x - 0.5) * 18}px`);
+  document.body.style.setProperty("--hero-shift-y", `${(y - 0.5) * 14}px`);
+  document.body.style.setProperty("--hero-rotate", `${(x - 0.5) * 2.4}deg`);
+  pointerFramePending = false;
+}
+if (!motionPreference.matches && window.matchMedia("(pointer: fine)").matches) {
+  window.addEventListener("pointermove", event => {
+    if (!pointerFramePending) {
+      pointerFramePending = true;
+      window.requestAnimationFrame(() => updatePointerEffects(event));
+    }
+  }, { passive: true });
+  document.querySelectorAll("[data-tilt]").forEach(card => {
+    card.addEventListener("pointermove", event => {
+      const bounds = card.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+      card.style.setProperty("--tilt-x", `${y * -7}deg`);
+      card.style.setProperty("--tilt-y", `${x * 7}deg`);
+      card.classList.add("is-tilting");
+    });
+    card.addEventListener("pointerleave", () => {
+      card.classList.remove("is-tilting");
+      card.style.removeProperty("--tilt-x");
+      card.style.removeProperty("--tilt-y");
+    });
   });
 }
 
