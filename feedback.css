@@ -1,0 +1,24 @@
+/* Feedback de clientes — isolado do restante do portfólio */
+.feedback-section{background:#111;color:#f7f7f7;padding-block:clamp(70px,9vw,130px)}
+.feedback-section .eyebrow{color:#aaa}
+.feedback-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(28px,6vw,100px);align-items:start}
+.feedback-intro h2{font-size:clamp(2.4rem,5vw,5rem);line-height:1.06;letter-spacing:-.055em;margin:20px 0}
+.feedback-intro>p:last-child{color:#b8b8b8;max-width:38ch;line-height:1.7}
+.feedback-form{background:#1d1d1d;border:1px solid #363636;border-radius:18px;padding:clamp(22px,4vw,42px)}
+.feedback-form .feedback-field{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.feedback-form label,.feedback-form legend{font-weight:600;font-size:.95rem}
+.feedback-form input,.feedback-form textarea{background:#121212;border:1px solid #494949;border-radius:8px;color:#fff;padding:14px 15px;font:inherit;width:100%;outline-offset:3px}
+.feedback-form input:focus-visible,.feedback-form textarea:focus-visible{outline:2px solid #fff}
+.feedback-form textarea{min-height:130px;resize:vertical}
+.feedback-form input::placeholder,.feedback-form textarea::placeholder{color:#aaa}
+.feedback-rating{border:0;margin:0 0 22px;padding:0}
+.feedback-rating legend{margin-bottom:10px}
+.feedback-stars{display:flex;align-items:center;gap:5px}
+.feedback-star{font:inherit;font-size:2.1rem;line-height:1;border:0;background:transparent;color:#777;cursor:pointer;padding:5px 7px;transition:color .15s,transform .15s}
+.feedback-star:hover,.feedback-star:focus-visible{transform:scale(1.1)}
+.feedback-star[aria-pressed=true]{color:#ffd369}
+.feedback-rating-label{font-size:.87rem;color:#c4c4c4;margin-top:8px}
+.feedback-submit{display:inline-flex;justify-content:center;align-items:center;min-height:50px;cursor:pointer}
+.feedback-note,.feedback-status{font-size:.87rem;color:#aaa;margin:14px 0 0;line-height:1.55}
+.feedback-status:not(:empty){color:#f5cf88}
+@media(max-width:760px){.feedback-layout{grid-template-columns:1fr}.feedback-section{padding-block:72px}.feedback-form{padding:22px}.feedback-star{font-size:2rem}}
